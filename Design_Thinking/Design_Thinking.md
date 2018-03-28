@@ -47,7 +47,7 @@
 
 > Task: Spend 5 minutes as a team to group post-it notes into buckets! These will resemble themes with the user.
 
-![Screen Shot 2018-03-28 at 2.01.09 PM](/Users/wilsau/Desktop/Screen Shot 2018-03-28 at 2.01.09 PM.png)
+![empathy-map-full](https://github.com/wsaults/Knowledge-Database/blob/master/Design_Thinking/images/empathy-map-full.png)
 
 
 
@@ -67,9 +67,9 @@
 - Thinking
 - Feeling
 
-![Screen Shot 2018-03-28 at 2.09.05 PM](/Users/wilsau/Desktop/Screen Shot 2018-03-28 at 2.09.05 PM.png)
+![journey-map-empty](https://github.com/wsaults/Knowledge-Database/blob/master/Design_Thinking/images/journey-map-empty.png)
 
-![Screen Shot 2018-03-28 at 2.02.07 PM](/Users/wilsau/Desktop/Screen Shot 2018-03-28 at 2.02.07 PM.png)
+![journey-map-full](https://github.com/wsaults/Knowledge-Database/blob/master/Design_Thinking/images/journey-map-full.png)
 
 
 
@@ -96,7 +96,7 @@
 
 > Note: The storyboard should reinforce the supportive solutions meant to resolve her pain points.
 
-![Screen Shot 2018-03-28 at 2.24.52 PM](/Users/wilsau/Desktop/Screen Shot 2018-03-28 at 2.24.52 PM.png)
+![storyboard](https://github.com/wsaults/Knowledge-Database/blob/master/Design_Thinking/images/storyboard.png)
 
 
 
@@ -110,7 +110,7 @@
 
 > Note: The rows are the pain-points identified for a specific user.
 
-![Screen Shot 2018-03-28 at 2.26.58 PM](/Users/wilsau/Desktop/Screen Shot 2018-03-28 at 2.26.58 PM.png)
+![roadmap](https://github.com/wsaults/Knowledge-Database/blob/master/Design_Thinking/images/roadmap.png)
 
 Things to consider when explaining a roadmap:
 
@@ -119,8 +119,6 @@ Things to consider when explaining a roadmap:
 - Solve the pain
 
 > Key: Acknoweldge what your audience cares about!
-
-
 
 
 
