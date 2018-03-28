@@ -41,7 +41,7 @@
 
 **Feels:** Such as "Excited about attending X event". Should be kept short!
 
-### ![](/Users/wilsau/Desktop/Screen Shot 2018-03-28 at 1.53.11 PM.png)
+![empathy-map-empty](https://github.com/wsaults/Knowledge-Database/blob/master/Design_Thinking/images/empathy-map-empty.png)
 
 **Buckets:** affinitized groupings of post-it notes; organied by type, concept, etc.
 
