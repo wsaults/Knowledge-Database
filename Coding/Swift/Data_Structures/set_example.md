@@ -16,6 +16,10 @@ class Set: NSObject {
     }
     
     func add(_ value: String) {
+        if contains(value) {
+            return
+        }
+        
         self.data?.append(value)
     }
     
@@ -39,4 +43,8 @@ set.contains("Wubba lubba dub dub!")    // Returns true
 set.remove("Wubba lubba dub dub!")
 set.length()                            // Returns 0
 set.contains("Wubba lubba dub dub!")    // Returns false
+set.add("Ricky ticky tavy")             
+set.length()                            // Returns 1
+set.add("Ricky ticky tavy")
+set.length()                            // Returns 1
 ```
