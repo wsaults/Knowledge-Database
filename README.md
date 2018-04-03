@@ -13,6 +13,8 @@ An incomplete collection of things I've learned, studied, or used.
       - [HTTPClientManager](https://github.com/wsaults/Knowledge-Database/blob/master/Coding/Swift/API/httpclientmanager.md)
       - [Servers](https://github.com/wsaults/Knowledge-Database/blob/master/Coding/Swift/API/servers.md)
     - [Programmatic Auto Layout](https://github.com/wsaults/Knowledge-Database/blob/master/Coding/Swift/Programmatic%20Auto%20Layout.md)
+    - Data Structures:
+      - [Set Example in Swift](https://github.com/wsaults/Knowledge-Database/blob/master/Coding/Swift/Data_Structures/set_example.md)
     - TDD
       - [QuickSpec](https://github.com/wsaults/Knowledge-Database/blob/master/Coding/Swift/TDD/QuickSpec.md)
 
