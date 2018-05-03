@@ -1,7 +1,5 @@
-# Knowledge-Database
-An incomplete collection of things I've learned, studied, or used.
-
-
+# Knowledge-Database 🧠
+An incomplete collection of things I've learned, studied, or used. 👨🏼‍💻
 
 - Coding:
   - [HTML:CSS](https://github.com/wsaults/Knowledge-Database/blob/master/Coding/HTML:CSS/HTML:CSS%20Notes.md)
