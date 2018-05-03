@@ -5,8 +5,8 @@ An incomplete collection of things I've learned, studied, or used. 👨🏼‍�
   - [HTML:CSS](https://github.com/wsaults/Knowledge-Database/blob/master/Coding/HTML:CSS/HTML:CSS%20Notes.md)
   - [Javascript](https://github.com/wsaults/Knowledge-Database/blob/master/Coding/Javascript/Javascript%20Notes.md)
   - React:
-    - [Basics](https://github.com/wsaults/Knowledge-Database/blob/master/Coding/React/React_Basics/React%20-%20JS%20Framework.md)
-    - [React By Example](https://github.com/wsaults/Knowledge-Database/blob/master/Coding/React/React_By_Example/React%20by%20Example.md)
+    - [Basics](https://github.com/wsaults/Knowledge-Database/tree/master/Coding/React/React_Basics)
+    - [React By Example](https://github.com/wsaults/Knowledge-Database/tree/master/Coding/React/React_By_Example)
   - Swift:
     - [Programmatic Auto Layout](https://github.com/wsaults/Knowledge-Database/blob/master/Coding/Swift/Programmatic%20Auto%20Layout.md)
     - API
