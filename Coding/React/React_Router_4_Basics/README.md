@@ -168,3 +168,107 @@ const Courses = ({match}) => (
 );
 ```
 
+
+
+------
+
+
+
+## Going Further with Routing
+
+
+
+### Displaying 404 Error Routes using Switch
+
+Wrapping all `Route` components in `Switch` tells the browser to display only the first matching `route`. If no routes match then it will fall-back to the `NotFound` component.
+
+```jsx
+const App = () => (
+  <BrowserRouter>
+  <div className="container">
+    <Header />
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route path="/about" render={ () => <About title='About' /> } />
+      <Route path="/teachers" component={Teachers} />
+      <Route path="/courses" component={Courses} />
+      <Route component={NotFound} />
+    </Switch>
+  </div>
+  </BrowserRouter>
+);
+```
+
+
+
+### Passing Data to Components Via Routes
+
+A new `CourseContainer` component is being used to dynamically render each of the courses data.
+
+```jsx
+const Courses = ({match}) => (
+  <div className="main-content courses">
+    <div className="course-header group">
+      <h2>Courses</h2> 
+      <ul className="course-nav">
+        <li><NavLink to={`${match.url}/html`}>HTML</NavLink></li>
+        <li><NavLink to={`${match.url}/css`}>CSS</NavLink></li>
+        <li><NavLink to={`${match.url}/javascript`}>JavaScript</NavLink></li>
+      </ul>
+    </div>
+    
+    <Route exact path={match.path} render={ () => <Redirect to={`${match.path}/html`} /> } />
+    <Route path={`${match.path}/html`} render={ () => <CourseContainer data={HTMLCourses} />} />
+    <Route path={`${match.path}/css`} render={ () => <CourseContainer data={CSSCourses} />} />
+    <Route path={`${match.path}/javascript`} render={ () => <CourseContainer data={JSCourses} />} />
+  </div>
+);
+```
+
+
+
+### Using URL Parameters
+
+Add a `?` to the end of a parameter:
+
+```jsx
+<Route path="teachers/:topic/:fname/:lname?" component={Featured} /> 
+```
+
+
+
+### Navigating Routes Programmatically
+
+The `form` submits the `handleSubmit` function and programatically changes the route using the `history` prop.
+
+```jsx
+class Home extends Component {    
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    let teacherName = this.name.value;
+    let teacherTopic = this.topic.value;
+    let path = `teachers/${teacherTopic}/${teacherName}`;
+    this.props.history.push(path);
+  };
+  
+  render() {
+    return (
+      <div className="main-content home">
+        <h2>Front End Course Directory</h2>
+        <p>This fun directory is a project for the <em>React Router Basics</em> course on Treehouse.</p>
+        <hr />
+        <h3>Featured Teachers</h3>
+        <Link to="teachers/HTML/Will">Will The Thrill</Link>
+        <hr />
+        <form onSubmit={this.handleSubmit}>
+          <input type="text" placeholder="Name" ref={ (input) => this.name = input } />
+          <input type="text" placeholder="Topic" ref={ (input) => this.topic = input } />
+          <button type="submit">Go!</button>
+        </form> 
+      </div>
+    );
+  }
+}
+```
+
