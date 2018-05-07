@@ -9,6 +9,7 @@ An incomplete collection of things I've learned, studied, or used. 👨🏼‍�
     - [React By Example](https://github.com/wsaults/Knowledge-Database/tree/master/Coding/React/React_By_Example)
     - [React Router 4 Basics](https://github.com/wsaults/Knowledge-Database/tree/master/Coding/React/React_Router_4_Basics)
     - [React and Redux](https://github.com/wsaults/Knowledge-Database/tree/master/Coding/React/React_and_Redux)
+    - [Data Fetching in React](https://github.com/wsaults/Knowledge-Database/tree/master/Coding/React/Data_Fetching_In_React)
   - Swift:
     - [Programmatic Auto Layout](https://github.com/wsaults/Knowledge-Database/blob/master/Coding/Swift/Programmatic%20Auto%20Layout.md)
     - API
