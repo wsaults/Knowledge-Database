@@ -4,6 +4,7 @@ An incomplete collection of things I've learned, studied, or used. 👨🏼‍�
 - Coding:
   - Angular:
     - [Basics](https://github.com/wsaults/Knowledge-Database/tree/master/Coding/Angular/Angular_Basics)
+    - [Getting Started]()
   - [HTML:CSS](https://github.com/wsaults/Knowledge-Database/blob/master/Coding/HTML:CSS/HTML:CSS%20Notes.md)
   - [Javascript](https://github.com/wsaults/Knowledge-Database/blob/master/Coding/Javascript/Javascript%20Notes.md)
   - React:
