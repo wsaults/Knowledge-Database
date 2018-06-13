@@ -14,7 +14,7 @@ An incomplete collection of things I've learned, studied, or used. 👨🏼‍�
     - [React and Redux](https://github.com/wsaults/Knowledge-Database/tree/master/Coding/React/React_and_Redux)
     - [Data Fetching in React](https://github.com/wsaults/Knowledge-Database/tree/master/Coding/React/Data_Fetching_In_React)
   - Spring:
-    - [Spring The Big Picture](https://github.com/wsaults/Knowledge-Database/tree/master/Coding/Spring/Spring_The_Big_Picture)
+    - [Spring: The Big Picture](https://github.com/wsaults/Knowledge-Database/tree/master/Coding/Spring/Spring_The_Big_Picture)
   - Swift:
     - [Programmatic Auto Layout](https://github.com/wsaults/Knowledge-Database/blob/master/Coding/Swift/Programmatic%20Auto%20Layout.md)
     - API
