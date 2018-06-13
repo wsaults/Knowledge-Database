@@ -737,7 +737,7 @@ Promise vs Observable:
 
 ### Sending an Http Request
 
-![](/Users/willsaults/Documents/Knowledge-Database/Coding/Angular/Angular_Getting_Started/sending-an-http-request.png)
+![](https://raw.githubusercontent.com/wsaults/Knowledge-Database/master/Coding/Angular/Angular_Getting_Started/sending-an-http-request.png)
 
 ``` ts
 // Http request example
