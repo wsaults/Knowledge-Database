@@ -89,3 +89,134 @@ public class DemoApplication {
 
 ## Understanding Spring's Foundations: The Spring Framework
 
+The Spring Framework was the begining of Spring.
+
+The Spring Framework is **modular**.
+
+
+
+### The Spring Framework: Six Key Areas
+
+- Core
+- Web
+- AOP - Aspect oriented programming
+- Data Access
+- Integration
+- Testing
+
+
+
+### Spring Core
+
+> The foundational modual of which all other moduals are built.
+
+![spring-core](spring-core.png)
+
+- Spring Core provides dependency injection.
+
+> Note: Spring Core creates and maintains objects and their dependencies.
+
+
+
+### Spring Web
+
+> A framework for handling web requests
+
+This is done one of two ways:
+
+- Spring Web MVC
+- Spring Web Webflux
+
+
+
+### Spring Web MVC
+
+**(Java) Servlet**
+
+> A Servlet is an object that receives a request and generates a response based on that request.
+>
+> -Wikipedia
+
+![servlet-api](servlet-api.png)
+
+Challenges:
+
+- Somewhat low-level
+- Not easy to use
+- Less productive
+
+
+
+![spring-web-mvc](spring-web-mvc.png)
+
+
+
+Advantages:
+
+- Higher Level API
+  - Easier
+  - More productivty (Better design principals)
+
+![spring-web-mvc-design](spring-web-mvc-design.png)
+
+> **MVC** stands for Model View Controller
+
+
+
+### Spring Webflux
+
+**Reactive Programming**
+
+> "… a declarative programming paradigm concerned with data streams and the propagation of change"
+
+**REACT** to change rather than **WAIT** for change!
+
+- Asynchronous execution
+- Doesn't block (wait)
+  - Better resource utilization
+
+
+
+### Spring AOP
+
+**Aspect-oriented Programming**
+
+> "A programming paradigm that aims to increase modularity by allowing the separation of cross-cutting concerns."
+>
+> -Wikipedia
+
+A way of programming that increases organization of code for concerns that span multiple tiers or layers of an application.
+
+- Used to implement features in Spring
+- A valuable tool for developers to handle cross-cutting concerns
+
+
+
+**Example: Application Security**
+
+```java
+// The PROBLEM!!!
+public void sensitiveOperation() {
+    // Check if user is authenticated and has the correct role
+    if (...) {
+        // do sensitive operation
+    } else {
+        // raise an error
+        // log failed attempt
+        // redirect
+    }
+}
+```
+
+``` java
+// The SOLUTION!!!
+@PreAuthorize("hasRole('admin')")
+public void sensitiveOperation() {
+    // do sensitive operation
+}
+```
+
+
+
+## Spring Data Access
+
