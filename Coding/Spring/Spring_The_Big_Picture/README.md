@@ -347,11 +347,13 @@ Provides support for cleaning up after tests
 
 
 
+
 ## Exploring Other Spring Projects
 
 [Spring Projects](http://spring.io/projects)
 
+- Spring Data
+- Spring Cloud Project
+- Spring Security Project
 
-
-### Spring Data
 
