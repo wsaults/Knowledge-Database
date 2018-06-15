@@ -220,3 +220,128 @@ public void sensitiveOperation() {
 
 ## Spring Data Access
 
+> Makes it easier to access data and make DB transactions.
+
+``` java
+// Example
+int cnt = new JdbcTemplate(ds)
+    .queryForInt("SELECT COUNT(*) FROM foo");
+```
+
+``` java
+// Executing a DB transaction
+try
+{
+    connection.setAutoCommit(false);
+    connection.commit();
+}
+catch(Exception e)
+{
+    connection.rollback();
+}
+finally
+{
+    connection.close();
+}
+```
+
+``` java
+// The same concept using the transactional support in the Spring framework
+@Transactional
+public void operation() {
+    // Do 1 or more queries or updates
+}
+```
+
+
+
+**Exception Translation:** maps DB specific error codes to well known error translations.
+
+
+
+### Spring Integration
+
+> Integration is all about making different systems and applications work together.
+
+Ways to Expose Operations:
+
+- RMI (Remote Method Invocation)
+- Messaging Systems
+- Web Services
+
+
+
+``` java
+// Expose web service example
+@RestController // Denotes we are using REST
+public class AccountController {
+    @GetMapping("/account/{id}") // Denotes operation and path
+    public Account
+        find(@PathVariable int id) { // Associates path and value
+        // Look up account by id
+    }
+}
+```
+
+
+
+#### Invoking a web service
+
+RestTemplate
+
+- Abstracts away tedius details
+- Handles
+  - Connecting to the web service
+  - Sending the command
+  - Handling the response
+
+``` java
+// Invoking a web service
+restTemplate.getForObject("http://foo.com/account/123", Account.class);
+```
+
+
+
+## Spring Testing
+
+Ways to test
+
+- Unit testing
+- Integration testing
+
+
+
+#### Unit Testing
+
+> "… a software development process in which the smallest testable parts of an application, called units, are individually and independently scrutinized for proper operation"
+>
+> -techtarget.com
+
+Test the smallest unit of code possible
+
+- Dependencies cause challenges
+
+***Dependency injection forces the developer to declase dependencies***
+
+Control how dependencies behave
+
+- ONLY test the code, not the dependencies
+- Mock dependencies
+
+#### Integration Testing
+
+> "… the phase in software testing in which individual software modules are combined and tested as a group. It occurs after unit testing ..."
+>
+> -Wikipedia
+
+Provides support for common testing scenarios
+
+- Testing with data
+- Web application testing
+
+Provides support for cleaning up after tests
+
+- Tests modify things, need to reverse modifications after test so as to not affect the next tests
+
+
+
