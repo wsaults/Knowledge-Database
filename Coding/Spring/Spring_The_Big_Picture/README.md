@@ -34,6 +34,8 @@
 
 
 
+
+
 ## Getting to Know Spring with Spring Boot
 
 > "Spring Boot makes getting started with Spring quick and easy"
@@ -344,4 +346,12 @@ Provides support for cleaning up after tests
 - Tests modify things, need to reverse modifications after test so as to not affect the next tests
 
 
+
+## Exploring Other Spring Projects
+
+[Spring Projects](http://spring.io/projects)
+
+
+
+### Spring Data
 
