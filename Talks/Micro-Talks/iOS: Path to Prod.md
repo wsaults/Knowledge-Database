@@ -119,7 +119,7 @@ git init && touch README.md && git add . && git commit -m "First commit" && git 
 - put in ready to submit state
 
 ## AppStore Submission
-- generate / update screen shots
+- generate [screen shots](https://docs.fastlane.tools/getting-started/ios/screenshots/)
 - Automated version with [agvtool](https://developer.apple.com/library/archive/qa/qa1827/_index.html)
   - Set the `Current Project Version` under `Build Settings` for each target
   - Set `Versioning System` to `Apple Generic` to ensure that Xcode will include all agvtool-generated version information in your project.
