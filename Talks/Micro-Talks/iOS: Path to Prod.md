@@ -3,6 +3,7 @@
 ## Setup
 - Create dir
 - init git & push
+- open xcode from dir `open -a Xcode`
 - create project and push
 - add cocoapods
   - `sudo gem install cocoapods`
