@@ -12,7 +12,7 @@ git init && touch README.md && git add . && git commit -m "First commit" && git 
   - Add the following to the podfile and then run `pod install`
 ```
 # Podfile
-platform :ios, '9.0'
+platform :ios, '11.0'
 use_frameworks!
 
 def testing_pods
