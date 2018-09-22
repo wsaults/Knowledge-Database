@@ -75,12 +75,8 @@ git init && touch README.md && git add . && git commit -m "First commit" && git 
     slack                     # Let your team-mates know the new version is live
   end
   
-  lane :unit do
-    run_tests(scheme: "testDemoAppTests")
-  end
-
-  lane :ui do
-    run_tests(scheme: "testDemoAppUITests")
+  lane :test do
+    run_tests(scheme: "testDemoApp")
   end
   
   desc "Deploy a new version to the App Store"
