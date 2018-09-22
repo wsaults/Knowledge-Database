@@ -37,7 +37,7 @@ fastlane/test_output
 ```
 ...then push:
 ```
-git add . && git commit -m "added pods and ignore file && git push
+git add . && git commit -m "added pods and ignore file" && git push
 ```
 - open xcworkspace using `open *.xcworkspace` and connect apple account
 - install [quick](https://github.com/Quick/Quick)/[nimble](https://github.com/Quick/Nimble)
