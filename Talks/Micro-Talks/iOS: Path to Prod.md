@@ -9,7 +9,7 @@ git init && touch README.md && git add . && git commit -m "First commit" && git 
 - add cocoapods
   - `sudo gem install cocoapods`
   - `pod init`
-  - Update your podfile to include the following and then run `pod install`
+  - Update your podfile `code . Podfile` to include the following and then run `pod install`
 ```
 def testing_pods
     pod 'Quick'
@@ -24,7 +24,7 @@ target '$UITEST_TARGET_NAME do
     testing_pods
 end
 ```
-- touch .gitignore file, update with the following, and push
+- touch .gitignore file `touch .gitignore && code . .gitignore`, update with the following, and push
 ```
 xcuserdata/
 *.ipa
