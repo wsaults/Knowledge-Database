@@ -34,6 +34,6 @@ An incomplete collection of things I've learned, studied, or used. 👨🏼‍�
   
 - Talks:
   - Micro-Talks:
-    - [iOS: Path to Prod](https://github.com/wsaults/Knowledge-Database/tree/master/Talks/Micro-Talks.md)  
+    - [iOS: Path to Prod](https://github.com/wsaults/Knowledge-Database/blob/master/Talks/Micro-Talks/iOS:%20Path%20to%20Prod.md)  
 
 
