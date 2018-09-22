@@ -99,7 +99,6 @@ git init && touch README.md && git add . && git commit -m "First commit" && git 
   end
   ```
   - Create Schemes for tests, mark them `shared`, and check the `run` box under `build`
-- Automated test suite environment
   
 ## Pipeline
 - [CircleCi](https://circleci.com/)
