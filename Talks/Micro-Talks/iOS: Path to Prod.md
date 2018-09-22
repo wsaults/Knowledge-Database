@@ -4,7 +4,29 @@
 - Create dir
 - init git & push
 - create project and push
-- add carthage/cocoapods
+- add cocoapods
+  - `sudo gem install cocoapods`
+  - `pod init`
+  - Add the following to the podfile
+```
+# Podfile
+platform :ios, '9.0'
+use_frameworks!
+
+def testing_pods
+    pod 'Quick'
+    pod 'Nimble'
+end
+
+target '$TEST_TARGET_NAME' do
+    testing_pods
+end
+
+target '$UITEST_TARGET_NAME do
+    testing_pods
+end
+```
+  - `pod install`
 - open project and connect apple account
 - launch project
 - install [quick](https://github.com/Quick/Quick)/[nimble](https://github.com/Quick/Nimble)
