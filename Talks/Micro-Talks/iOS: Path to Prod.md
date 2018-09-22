@@ -51,7 +51,8 @@ git init && touch README.md && git add . && git commit -m "First commit" && git 
 
 ## Deploy
 - setup [fastlane](https://fastlane.tools/) using the [docs](https://docs.fastlane.tools/)
-  - `touch Fastfile && code . Fastfile`
+  - `fastlane init`
+  - `code . Fastfile`
   - add the following:
   ```
   lane :release do
