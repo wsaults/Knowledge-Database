@@ -121,4 +121,6 @@ git init && touch README.md && git add . && git commit -m "First commit" && git 
 ## AppStore Submission
 - generate / update screen shots
 - Automated version with [agvtool](https://developer.apple.com/library/archive/qa/qa1827/_index.html)
+  - Set the `Current Project Version` under `Build Settings` for each target
+  - Set `Versioning System` to `Apple Generic` to ensure that Xcode will include all agvtool-generated version information in your project.
 - submit
