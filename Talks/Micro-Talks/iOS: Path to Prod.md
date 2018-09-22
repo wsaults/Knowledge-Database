@@ -40,6 +40,7 @@ git init && touch README.md && git add . && git commit -m "First commit" && git 
   git add . && git commit -m "added pods and ignore file" && git push
   ```
 - open xcworkspace using `open *.xcworkspace`
+- [code signing](use_automatic_signing)
 
 ## Testing
 - outline simple AC
@@ -52,9 +53,14 @@ git init && touch README.md && git add . && git commit -m "First commit" && git 
 ## Deploy
 - setup [fastlane](https://fastlane.tools/) using the [docs](https://docs.fastlane.tools/)
   - `fastlane init`
+  - `fastlane match init`
+  - `fastlane match development`
+  - `fastlane match appstore`
   - `code . Fastfile`
   - add the following:
   ```
+  // WIP
+  
   lane :release do
   capture_screenshots
   build_app
