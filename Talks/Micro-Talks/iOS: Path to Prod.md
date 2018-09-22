@@ -9,12 +9,8 @@ git init && touch README.md && git add . && git commit -m "First commit" && git 
 - add cocoapods
   - `sudo gem install cocoapods`
   - `pod init`
-  - Add the following to the podfile and then run `pod install`
+  - Update your podfile to include the following and then run `pod install`
 ```
-# Podfile
-platform :ios, '11.0'
-use_frameworks!
-
 def testing_pods
     pod 'Quick'
     pod 'Nimble'
