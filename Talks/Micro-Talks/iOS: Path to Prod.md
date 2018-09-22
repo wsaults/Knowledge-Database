@@ -57,24 +57,31 @@ git init && touch README.md && git add . && git commit -m "First commit" && git 
   - `fastlane match development --readonly`
   - `fastlane match appstore --readonly`
   - `fastlane snapshot init` and Add the `./fastlane/SnapshotHelper.swift` to your UI Test target
-  - add the following:
+  - add the following to your UI test:
   ```
   let app = XCUIApplication()
   setupSnapshot(app)
   app.launch()
   ```
-  - `code . Fastfile`
-  - add the following:
+  - use: `snapshot("0Launch")` to wherever you want to trigger screenshots
+  - `code . Fastfile` and add the following:
   ```
   // WIP
   
   lane :release do
-  capture_screenshots
-  build_app
-  upload_to_app_store       # Upload the screenshots and the binary to iTunes
-  slack                     # Let your team-mates know the new version is live
+    capture_screenshots
+    build_app
+    upload_to_app_store       # Upload the screenshots and the binary to iTunes
+    slack                     # Let your team-mates know the new version is live
   end
   
+  lane :unit do
+    run_tests(scheme: "testDemoAppTests")
+  end
+
+  lane :ui do
+    run_tests(scheme: "testDemoAppUITests")
+  end
   
   desc "Deploy a new version to the App Store"
   lane :release do
@@ -91,6 +98,7 @@ git init && touch README.md && git add . && git commit -m "First commit" && git 
     # frameit
   end
   ```
+  - Create Schemes for tests, mark them `shared`, and check the `run` box under `build`
 - Automated test suite environment
   
 ## Pipeline
