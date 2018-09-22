@@ -26,6 +26,7 @@ target '$UITEST_TARGET_NAME do
     testing_pods
 end
 ```
+- drop in .gitignore file and push
 - open project and connect apple account
 - launch project
 - install [quick](https://github.com/Quick/Quick)/[nimble](https://github.com/Quick/Nimble)
