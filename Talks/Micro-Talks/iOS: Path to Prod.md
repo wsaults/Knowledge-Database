@@ -120,4 +120,5 @@ git init && touch README.md && git add . && git commit -m "First commit" && git 
 
 ## AppStore Submission
 - generate / update screen shots
+- Automated version with [agvtool](https://developer.apple.com/library/archive/qa/qa1827/_index.html)
 - submit
