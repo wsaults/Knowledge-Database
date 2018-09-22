@@ -24,9 +24,18 @@ target '$UITEST_TARGET_NAME do
     testing_pods
 end
 ```
-- drop in .gitignore file and push
-- open project and connect apple account
-- launch project
+- touch .gitignore file, update with the following, and push
+```
+xcuserdata/
+*.ipa
+*.dSYM.zip
+*.dSYM
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+```
+- open xcworkspace using `open *.xcworkspace` and connect apple account
 - install [quick](https://github.com/Quick/Quick)/[nimble](https://github.com/Quick/Nimble)
 
 ## Testing
