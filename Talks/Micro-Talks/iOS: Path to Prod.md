@@ -7,7 +7,7 @@
 - add cocoapods
   - `sudo gem install cocoapods`
   - `pod init`
-  - Add the following to the podfile
+  - Add the following to the podfile and then run `pod install`
 ```
 # Podfile
 platform :ios, '9.0'
@@ -26,7 +26,6 @@ target '$UITEST_TARGET_NAME do
     testing_pods
 end
 ```
-  - `pod install`
 - open project and connect apple account
 - launch project
 - install [quick](https://github.com/Quick/Quick)/[nimble](https://github.com/Quick/Nimble)
