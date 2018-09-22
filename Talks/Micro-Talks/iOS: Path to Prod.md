@@ -54,10 +54,10 @@ git add . && git commit -m "added pods and ignore file" && git push
 - Automated test suite environment
   
 ## Pipeline
-- CircleCi
+- [CircleCi](https://circleci.com/)
 
 ## AppStore
-- open apple dev web account
+- open [apple dev](https://developer.apple.com/) web account
 - generate certs
 - create app in appstore connect
 - add some info to the appstore connect
