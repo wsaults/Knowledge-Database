@@ -39,7 +39,7 @@ fastlane/test_output
 ```
 git add . && git commit -m "added pods and ignore file" && git push
 ```
-- open xcworkspace using `open *.xcworkspace` and connect apple account
+- open xcworkspace using `open *.xcworkspace`
 
 ## Testing
 - outline simple AC
