@@ -11,11 +11,11 @@
 
 
 ## Setup
+- Create XCode project with Unit and UITests options checked.
 - init git & push 
 ```
 git init && touch README.md && git add . && git commit -m "First commit" && git remote add origin [$url] && git push -u origin master
 ```
-- Create XCode project with Unit and UITests options checked.
 - Add cocoapods for [quick](https://github.com/Quick/Quick)/[nimble](https://github.com/Quick/Nimble)
   - `sudo gem install cocoapods`
   - `pod init`
