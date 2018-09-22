@@ -50,8 +50,8 @@ git init && touch README.md && git add . && git commit -m "First commit" && git 
 - create unit test and feature cycles
 
 ## Deploy
-- setup [fastlane](https://fastlane.tools/)
-  - `touch Fastfile && code . Fastfile```
+- setup [fastlane](https://fastlane.tools/) using the [docs](https://docs.fastlane.tools/)
+  - `touch Fastfile && code . Fastfile`
   - add the following:
   ```
   lane :release do
