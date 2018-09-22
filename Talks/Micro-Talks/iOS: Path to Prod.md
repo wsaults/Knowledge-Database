@@ -1,5 +1,15 @@
 # iOS: Path to Prod
 
+## Prerequisites:
+- iOS Developer account
+- XCode 9 or greater
+- Brew
+- Cocoapods
+- Text editor (I'm using vs code here)
+- Github
+- Slack channel & app
+
+
 ## Setup
 - Create XCode project with Unit and UITests options checked.
 - init git & push 
@@ -27,6 +37,7 @@ git init && touch README.md && git add . && git commit -m "First commit" && git 
   - touch .gitignore file `touch .gitignore && code . .gitignore`, update with the following
   ```
   xcuserdata/
+  */xcshareddata/
   *.ipa
   *.dSYM.zip
   *.dSYM
@@ -34,6 +45,7 @@ git init && touch README.md && git add . && git commit -m "First commit" && git 
   fastlane/Preview.html
   fastlane/screenshots/**/*.png
   fastlane/test_output
+  .env.default
   ```
   ...then push:
   ```
@@ -53,6 +65,7 @@ git init && touch README.md && git add . && git commit -m "First commit" && git 
 ## Deploy
 - setup [fastlane](https://fastlane.tools/) using the [docs](https://docs.fastlane.tools/)
   - `fastlane init`
+  - Prepare a repo for [match](https://docs.fastlane.tools/actions/match/)
   - `fastlane match init`
   - `fastlane match development --readonly`
   - `fastlane match appstore --readonly`
@@ -94,14 +107,13 @@ git init && touch README.md && git add . && git commit -m "First commit" && git 
     # frameit
   end
   ```
-  - Create Schemes for tests, mark them `shared`, and check the `run` box under `build`
+  - Edit the project scheme, mark it as `shared`, and check the `run` boxs under `build`
   
 ## Pipeline
 - [CircleCi](https://circleci.com/)
 
 ## AppStore
 - open [apple dev](https://developer.apple.com/) web account
-- generate certs
 - create app in appstore connect
 - add some info to the appstore connect
 - put in ready to submit state
