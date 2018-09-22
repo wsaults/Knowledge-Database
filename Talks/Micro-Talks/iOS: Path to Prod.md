@@ -2,7 +2,8 @@
 
 ## Setup
 - Create dir
-- init git & push `git init && touch README.md && git add . && git commit -m "First commit" git remote add origin $url`
+- init git & push 
+```git init && touch README.md && git add . && git commit -m "First commit" git remote add origin $url && git push -u origin master```
 - open xcode from dir `open -a Xcode`
 - create project and push
 - add cocoapods
