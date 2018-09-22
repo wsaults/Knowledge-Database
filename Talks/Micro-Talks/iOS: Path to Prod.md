@@ -24,7 +24,7 @@ target '$UITEST_TARGET_NAME do
     testing_pods
 end
 ```
-- touch .gitignore file `touch .gitignore && code . .gitignore`, update with the following, and push
+- touch .gitignore file `touch .gitignore && code . .gitignore`, update with the following
 ```
 xcuserdata/
 *.ipa
@@ -34,6 +34,10 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+```
+...then push:
+```
+git add . && git commit -m "added pods and ignore file && git push
 ```
 - open xcworkspace using `open *.xcworkspace` and connect apple account
 - install [quick](https://github.com/Quick/Quick)/[nimble](https://github.com/Quick/Nimble)
