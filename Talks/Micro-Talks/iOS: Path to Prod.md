@@ -6,7 +6,7 @@
 - create project and push
 - open project and connect apple account
 - launch project
-- install quick/nimble
+- install [quick](https://github.com/Quick/Quick)/[nimble](https://github.com/Quick/Nimble)
 
 ## Testing
 - outline simple AC
@@ -25,6 +25,6 @@
 
 
 ## Deploy
-- setup fastlane
+- setup [fastlane](https://fastlane.tools/)
 - generate / update screen shots
 - submit
