@@ -10,35 +10,35 @@ git init && touch README.md && git add . && git commit -m "First commit" && git 
   - `sudo gem install cocoapods`
   - `pod init`
   - Update your podfile `code . Podfile` to include the following and then run `pod install`
-```
-def testing_pods
-    pod 'Quick'
-    pod 'Nimble'
-end
+  ```
+  def testing_pods
+      pod 'Quick'
+      pod 'Nimble'
+  end
 
-target '$TEST_TARGET_NAME' do
-    testing_pods
-end
+  target '$TEST_TARGET_NAME' do
+      testing_pods
+  end
 
-target '$UITEST_TARGET_NAME do
-    testing_pods
-end
-```
-- touch .gitignore file `touch .gitignore && code . .gitignore`, update with the following
-```
-xcuserdata/
-*.ipa
-*.dSYM.zip
-*.dSYM
-fastlane/report.xml
-fastlane/Preview.html
-fastlane/screenshots/**/*.png
-fastlane/test_output
-```
-...then push:
-```
-git add . && git commit -m "added pods and ignore file" && git push
-```
+  target '$UITEST_TARGET_NAME do
+      testing_pods
+  end
+  ```
+  - touch .gitignore file `touch .gitignore && code . .gitignore`, update with the following
+  ```
+  xcuserdata/
+  *.ipa
+  *.dSYM.zip
+  *.dSYM
+  fastlane/report.xml
+  fastlane/Preview.html
+  fastlane/screenshots/**/*.png
+  fastlane/test_output
+  ```
+  ...then push:
+  ```
+  git add . && git commit -m "added pods and ignore file" && git push
+  ```
 - open xcworkspace using `open *.xcworkspace`
 
 ## Testing
