@@ -54,8 +54,15 @@ git init && touch README.md && git add . && git commit -m "First commit" && git 
 - setup [fastlane](https://fastlane.tools/) using the [docs](https://docs.fastlane.tools/)
   - `fastlane init`
   - `fastlane match init`
-  - `fastlane match development`
-  - `fastlane match appstore`
+  - `fastlane match development --readonly`
+  - `fastlane match appstore --readonly`
+  - `fastlane snapshot init` and Add the `./fastlane/SnapshotHelper.swift` to your UI Test target
+  - add the following:
+  ```
+  let app = XCUIApplication()
+  setupSnapshot(app)
+  app.launch()
+  ```
   - `code . Fastfile`
   - add the following:
   ```
