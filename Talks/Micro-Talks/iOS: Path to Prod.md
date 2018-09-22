@@ -61,6 +61,22 @@ git init && touch README.md && git add . && git commit -m "First commit" && git 
   upload_to_app_store       # Upload the screenshots and the binary to iTunes
   slack                     # Let your team-mates know the new version is live
   end
+  
+  
+  desc "Deploy a new version to the App Store"
+  lane :release do
+    # match(type: "appstore")
+    # snapshot
+    increment_build_number
+    gym # Build your app - more options available
+    sigh
+    deliver(
+      skip_screenshots: true,
+      skip_metadata: false,
+      submit_for_review: false,
+      automatic_release: true)
+    # frameit
+  end
   ```
 - Automated test suite environment
   
