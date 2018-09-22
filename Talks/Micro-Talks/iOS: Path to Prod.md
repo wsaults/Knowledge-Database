@@ -51,6 +51,16 @@ git add . && git commit -m "added pods and ignore file" && git push
 
 ## Deploy
 - setup [fastlane](https://fastlane.tools/)
+  - `touch Fastfile && code . Fastfile```
+  - add the following:
+  ```
+  lane :release do
+  capture_screenshots
+  build_app
+  upload_to_app_store       # Upload the screenshots and the binary to iTunes
+  slack                     # Let your team-mates know the new version is live
+  end
+  ```
 - Automated test suite environment
   
 ## Pipeline
