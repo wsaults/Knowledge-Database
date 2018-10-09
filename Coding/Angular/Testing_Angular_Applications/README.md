@@ -95,3 +95,56 @@ describe('Test Cat getters and setters.', () => {
 #### End-to-end tests
 
 > Note: the purpose of E2E tests is to simulate the behavior of an end user.
+
+- Test that a modal appears correctly after a form is submitted.
+- Test that elments such as buttons or text appears on page load.
+
+> Note: E2Es can be the source of false positive failing tests due to timing out issues.
+
+#### Example of Simple End-to-End
+```
+import { browser } from 'protractor';
+
+describe('Contacts App title test', () => {
+  it('Title should be correct', () => {
+    const appUrl = 'https://contacts-app-starter.firebaseapp.com/';
+    const expectedTitle = 'Contacts App Starter';
+    browser.get(appUrl);
+    browser.getTitle().then((actualTitle) => {
+      expect(actualTitle).toEqual(expectedTitle);
+    });
+  });
+});
+```
+
+## 2 Creating your first tests
+
+- Write basic unit tests using Jasmine
+- beforeEach, afterEach, it, describe
+- Testing classes
+
+### 2.1 Writing tests using Jasmine
+
+> Note: Jasmine is a behavior-driven development framework (BDD).
+
+- describe: used to group together a series of tests.
+```
+describe('message describing the test suite', callback);
+```
+- it: used when we want to create a specific test.
+```
+it('message describing the test', callback);
+```
+- expect: where you want to write the code for the test to work.
+```
+Matcher function examples:
+toBe(), toContain(), toThrow, toEqual(), toBeTruthy(), toBeNull()...
+```
+> Documentation: [jasmine](https://jasmine.github.io/)
+
+
+
+
+
+Left off on page 17
+
