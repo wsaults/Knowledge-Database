@@ -4,6 +4,7 @@
 
 > Great tutorial and main source of information for this talk: [raywenderlich.com/ios-facetracking](https://www.raywenderlich.com/5491-ar-face-tracking-tutorial-for-ios-getting-started)
 
+
 ## Vocabulary:
 
 - **TrueDepth:** Front faceing camera available on the iPhone X and later which uses an IR emiiter to send out 30,000 dots. The IR camera then interprets those dots.
@@ -15,21 +16,14 @@
 - **ARFaceTrackingConfiguration:** A configuration that tracks the movement and expressions of the user's face with the TrueDepth camera.
 - **ARAnchor:** Positions in the real world tracked by ARKit, which do not move when you move your phone.
 - **ARFaceAnchor:** Extends ARAnchor and includes information about a face, such as topology and expression.
-- **ARFaceGeometry:** 3D description of a face including verticies and textureCoordinates.
+- **ARFaceGeometry:** 3D description of a face including verticies and textureCoordinates. It has 1220 verticies. #9 being the nose.
 - **ARSCNFaceGeometry:** Essentially creates what you see on the screen composed of SCNGeometry which uses data from an ARFaceGeometry.
 - **SCNGeometry:** 3D shape aka model or mesh that can be displayed in a scene with materials that define its appearance.
+- **Blend Shape Coefficients:** There are currently 52 blend shape coefficients that rand grom 0.0 (no expression) to 1.0 (maximum expression)
 
 ## Let's get started!
 
-1. Import `ARKit` into your view controller.
-  ```
-  import ARKit
-  ```
-
-2. Change your view controller class to `ARSCNView` inside the storyboard.
-
-> Note: `ARSCNView` is for displaying augmented reality experiences using `SceneKit` content. It can show the camera feed and display `SCNNode`s.
-
-3. Create an `IBOutlet` for your view.
-
-4. 
+1. Talk about TrueDepth
+2. Talk about "Mesh", ARKit, SceneKit, ARSCNView, ARFaceGeometry, ARFaceTrackingConfiguration, and ARSession.
+3. Talk about ARAnchor, SCNNode.
+4. Talk about ARFaceAnchor, Blend Shape Coefficients
