@@ -7,7 +7,7 @@
 
 ## Vocabulary:
 
-- **TrueDepth:** Front faceing camera available on the iPhone X and later which uses an IR emiiter to send out 30,000 dots. The IR camera then interprets those dots.
+- **TrueDepth:** Front-facing camera available on the iPhone X and later which uses an IR emiiter to send out 30,000 dots. The IR camera then interprets those dots.
 - **ARKit:** Apple iOS framework for producing augmented reality experiences on your device.
 - **ARSCNView:** A view for displaying AR experiences that augment the camera view with 3D SceneKit content.
 - **SceneKit:** Apple iOS framework for rendering 3D content.
@@ -23,7 +23,33 @@
 
 ## Let's get started!
 
-1. Talk about TrueDepth
-2. Talk about "Mesh", ARKit, SceneKit, ARSCNView, ARFaceGeometry, ARFaceTrackingConfiguration, and ARSession.
-3. Talk about ARAnchor, SCNNode.
-4. Talk about ARFaceAnchor, Blend Shape Coefficients
+Intro
+  - How/why I learned about this
+  - Ask for a Volunteer
+
+1. **Nothing:** Talk about `TrueDepth` camera
+  - iPhone X front-facing camera.
+  - Unlock phone, Animojis 
+
+2. **Mesh:** Talk about `ARKit`, `SceneKit`, `ARFaceGeometry`.
+  - IR emits/tracks 30,000 dots to create a mesh mask
+  - Things are rendered using `SceneKit`
+  - Geometry consists of verticies and textureCoordinates
+
+  > A vertex is a corner.
+
+3. **Nose:** Talk about `ARAnchor`, `SCNNode`.
+  - Anchor: Real world positions that don't move with the phone.
+  - `anchor.geometry.verticies` #9 is the nose. (1220)
+  - Node: position with no content that can have things attached to it.
+
+  > Tap to change the nose!
+
+4. **Face:** Talk about `ARFaceAnchor`, Blend Shape Coefficients (52)
+  - FaceAnchor: topology and expression "the geometry of the face"
+  - BSC: describes how much expression your face is showing. 0.0 to 1.0 (min to max)
+
+  ```
+  let features = ["nose", "leftEye", "rightEye", "mouth"]
+  let featureIndices = [[9], [1064], [42], [24, 25]]
+  ```
