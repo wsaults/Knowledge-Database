@@ -53,3 +53,15 @@ Intro
   let features = ["nose", "leftEye", "rightEye", "mouth"]
   let featureIndices = [[9], [1064], [42], [24, 25]]
   ```
+
+
+
+### Whiteboard notes:
+- Vertex is a corner
+- 30,000 IR dots
+- 1220 verticies
+- 52 BSC's 0.0 to 1.0
+- Animoji
+- FaceAnchor
+- Node
+- Smilies
