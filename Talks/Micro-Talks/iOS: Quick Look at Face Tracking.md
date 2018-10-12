@@ -4,6 +4,7 @@
 
 > Great tutorial and main source of information for this talk: [raywenderlich.com/ios-facetracking](https://www.raywenderlich.com/5491-ar-face-tracking-tutorial-for-ios-getting-started)
 
+Example project: [github](https://github.com/wsaults/MicroTalks-iOSFaceTracking.git)
 
 ## Vocabulary:
 
@@ -29,7 +30,8 @@ Intro
 
 1. **Nothing:** Talk about `TrueDepth` camera
   - iPhone X front-facing camera.
-  - Unlock phone, Animojis 
+  - Unlock phone, Animojis, Snapchat
+  - It's already tracking you!
 
 2. **Mesh:** Talk about `ARKit`, `SceneKit`, `ARFaceGeometry`.
   - IR emits/tracks 30,000 dots to create a mesh mask
@@ -52,11 +54,13 @@ Intro
   ```
   let features = ["nose", "leftEye", "rightEye", "mouth"]
   let featureIndices = [[9], [1064], [42], [24, 25]]
+  // You should eventually replace these magic numbers with Apple’s Vision framework to initially detect facial features and map their locations to the nearest vertices.
   ```
 
 
 
 ### Whiteboard notes:
+- TrueDepth!
 - Vertex is a corner
 - 30,000 IR dots
 - 1220 verticies
@@ -66,3 +70,4 @@ Intro
 - Node
 - Smilies
 - IR and Anchors and Nodes, oh my!
+- "Probably the best micro-talk I've heard all day!"
