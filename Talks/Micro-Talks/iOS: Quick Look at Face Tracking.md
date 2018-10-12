@@ -65,3 +65,4 @@ Intro
 - FaceAnchor
 - Node
 - Smilies
+- IR and Anchors and Nodes, oh my!
