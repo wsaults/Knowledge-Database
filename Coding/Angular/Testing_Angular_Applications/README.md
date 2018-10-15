@@ -1,7 +1,7 @@
 # Testing Angular Applications
 > Copyright 2018 Manning Publications
 
-## 1. Introduction to testing Angular applications
+## Chapter 1. Introduction to testing Angular applications
 
 - Angular was built for testing web and mobile web apps!
 
@@ -117,7 +117,7 @@ describe('Contacts App title test', () => {
 });
 ```
 
-## 2 Creating your first tests
+## Chapter 2. Creating your first tests
 
 - Write basic unit tests using Jasmine
 - beforeEach, afterEach, it, describe
@@ -143,8 +143,47 @@ toBe(), toContain(), toThrow, toEqual(), toBeTruthy(), toBeNull()...
 > Documentation: [jasmine](https://jasmine.github.io/)
 
 
+### 2.2 Testing classes
 
+```
+import SomeClass from './someClass';
+```
+> It's not necessary to include the .ts when importing a class.
 
+```
+let something: SomeClass = null;
+```
+> It is preferable to use let instead of var to solve various scoping issues. Let was introduced in ES6.
 
-Left off on page 17
+```
+// This is known as the Setup part of the test.
+beforeEach(() => {
+  something = new SomeClass();
+});
+```
+> It is common to reset a variable before every test to ensure that each is run independantly and that previous manipulated variables do not interfere with any other tests.
+
+```
+it('should have a valid constructor', () => {
+  expect(something).not.toBeNull();
+});
+```
+> Note: using 'should' in your tests are optional.
+
+```
+afterEach(() => {
+  something = null;
+});
+```
+> Make sure to destroy instance varaibles to avoid memory leaks.
+
+```
+// Testing a constructor
+it('should set name properly though constructor', () => {
+  contact = new ContactClass('Liz');
+  expect(contact.name).toEqual('Liz');
+});
+```
+
+## Chapter 3. Testing Components
 
