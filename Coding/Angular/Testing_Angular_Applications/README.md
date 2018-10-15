@@ -165,7 +165,7 @@ beforeEach(() => {
 
 ```
 it('should have a valid constructor', () => {
-  expect(something).not.toBeNull();
+  expect(something).not.toBeNull(); // '.toBeTruthy();' would be the same as '.not.toBeNull();'
 });
 ```
 > Note: using 'should' in your tests are optional.
@@ -187,3 +187,28 @@ it('should set name properly though constructor', () => {
 
 ## Chapter 3. Testing Components
 
+#### This chapter covers:
+- Testing components
+- Knowing the differences between isolated and shallow tests
+- Testing classes and functions
+
+> This chapter covers `TestBed`, `ComponentFixture`, `async`, and `fakeAsync`.
+
+### 3.1 Basic component tests
+
+```
+it('should not contain contacts if there is no data', () => {
+  expect(contactsComponent.contact.length).toBe(0);
+});
+
+it('should contain contacts if there is data', () => {
+  const newContact: Contact = {
+    id: 1,
+    name: 'Jason Pipemaker'
+  };
+  const contactsList: Array<Contact> = [newContact];
+  contactsComponent.contacts = contactsList;
+
+  expect(contactsComponent.contacts.length).toBe(1);
+});
+```
