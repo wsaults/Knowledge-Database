@@ -5,6 +5,7 @@ An incomplete collection of things I've learned, studied, or used. 👨🏼‍�
   - Angular:
     - [Basics](https://github.com/wsaults/Knowledge-Database/tree/master/Coding/Angular/Angular_Basics)
     - [Getting Started](https://github.com/wsaults/Knowledge-Database/tree/master/Coding/Angular/Angular_Getting_Started)
+    - [Testing Angular Applications](https://github.com/wsaults/Knowledge-Database/tree/master/Coding/Angular/Testing_Angular_Applications)
   - [HTML:CSS](https://github.com/wsaults/Knowledge-Database/blob/master/Coding/HTML:CSS/HTML:CSS%20Notes.md)
   - [Javascript](https://github.com/wsaults/Knowledge-Database/blob/master/Coding/Javascript/Javascript%20Notes.md)
   - React:
@@ -35,5 +36,6 @@ An incomplete collection of things I've learned, studied, or used. 👨🏼‍�
 - Talks:
   - Micro-Talks:
     - [iOS: Path to Prod](https://github.com/wsaults/Knowledge-Database/blob/master/Talks/Micro-Talks/iOS:%20Path%20to%20Prod.md)  
+    - [iOS: Quick Look at Face Tracking](https://github.com/wsaults/Knowledge-Database/blob/master/Talks/Micro-Talks/iOS:%20Quick%20Look%20at%20Face%20Tracking.md)  
 
 
