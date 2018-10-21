@@ -212,3 +212,6 @@ it('should contain contacts if there is data', () => {
   expect(contactsComponent.contacts.length).toBe(1);
 });
 ```
+> The tests above are known as *Isolated Tests* because they do not rely on any Angular dependencies.
+
+### 3.2 Real-world component testing
