@@ -215,3 +215,23 @@ it('should contain contacts if there is data', () => {
 > The tests above are known as *Isolated Tests* because they do not rely on any Angular dependencies.
 
 ### 3.2 Real-world component testing
+
+*Shallow Tests:* Tests a component one level deep, thus ignoring any child element that it may contain. Using shallow tests allows you to test only the parent component in isolation.
+
+### 3.2.1 Importing the dependencies
+
+- import { DebugElement } from '@angular/core'; `DebugElement` can be used to inspect an element during testing. It adds additional methods and properties to the native `HTMLElement`.
+
+- import { async, ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing'; 
+  - `async` lets you wrap a test so that the `async` function will complete once all asynchronous calls have been completed.
+  - `ComponentFixture` creates a fixture that can be used for debugging.
+  - `TestBed` Extensive API used to set-up and configure our tests. https://angular.io/api/core/testing/TestBed
+  - `fakeAsync` runs async tasks as though they were synchronous.
+  - `tick`simulates the passage of time.
+- `By` for selecting DOM elements. ex: `By.css('.highlight-row')`
+  - `all`, `css`, `directives`
+- `NoopAnimationsModule` to mock animations, allowing tests to run quickly without waiting for them to finish
+- `BrowserDynamicTestingModule` helps bootsrap the browser for testing.
+- `RouterTestingModule` sets up routing for testing.
+
+  
