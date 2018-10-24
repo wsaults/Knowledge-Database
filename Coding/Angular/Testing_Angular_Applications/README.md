@@ -232,6 +232,7 @@ it('should contain contacts if there is data', () => {
   - `all`, `css`, `directives`
 - `NoopAnimationsModule` to mock animations, allowing tests to run quickly without waiting for them to finish
 - `BrowserDynamicTestingModule` helps bootsrap the browser for testing.
-- `RouterTestingModule` sets up routing for testing.
+- `RouterTestingModule` to test out routing.
 
-  
+### 3.2.2 Setting up the tests
+
