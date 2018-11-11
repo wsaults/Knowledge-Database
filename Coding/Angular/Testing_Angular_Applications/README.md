@@ -228,7 +228,7 @@ it('should contain contacts if there is data', () => {
   - `TestBed` Extensive API used to set-up and configure our tests. https://angular.io/api/core/testing/TestBed
   - `fakeAsync` runs async tasks as though they were synchronous.
   - `tick`simulates the passage of time.
-- `By` for selecting DOM elements. ex: `By.css('.highlight-row')`
+- `By` for selecting DOM elements. ex: `fixture.debugElement.query(By.css('.highlight-row'))`
   - `all`, `css`, `directives`
 - `NoopAnimationsModule` to mock animations, allowing tests to run quickly without waiting for them to finish
 - `BrowserDynamicTestingModule` helps bootsrap the browser for testing.
@@ -236,3 +236,36 @@ it('should contain contacts if there is data', () => {
 
 ### 3.2.2 Setting up the tests
 
+> Note: 
+  - *test fake:* an object used in a test that substitutes for the real thing.
+  - *mock:* a fake that simulates the real object and keeps track of when it's called and what arguments it receives.
+  - *stub:* a simple fake with no logic that always returns the same value.
+
+#### Table 3.3: TestingModuleMetadata optional fields
+*declarations*: This is where you list any components that the component you are testing may need.
+
+*imports*: Should be set to an array of moduels that the component you are testing requires.
+
+*providers*: Lets you override the providers Angular uses for dependency injection. Like a fake ContactService.
+
+*schemas*: You can use custom schemas.
+
+*fixture.detectChanges*: Triggers a change-detection cycle for the component. Call it ater initializing a component or changing a data-bound property value. Those changes will be rendered in the DOM.
+
+> Note: In general, you shouldn't test private methods; it a method is important enough to be tested, you should consider making it public.
+
+#### Chapter Recap
+
+- Shallow tests versus isolated tests. Isolated tests don’t rely on the built-in Angular classes and methods. They can be tested as if there are normal JavaScript classes. Sometimes our tests will require the actual rendering of components one level deep without requiring the rendering of child components. These types of tests are known as shallow tests.
+- Using the async function, you can wrap a test function in an asynchronous test zone. The test inside the async function will complete automatically after all asynchronous calls within the asynchronous test zone have been completed.
+- Use the ComponentFixture class to debug an element.
+- TestBed is a class that is used to set-up and configure our tests. We use it anytime we want to write unit test that test out components, directives, and services.
+- DebugElement can be used to dive deeper into an element. You can think of it as the nativeElement with additional methods and properties that can be useful to debug elements.
+- The nativeElement object is an Angular wrapper around the built-in DOM native element.
+
+## Chapter 4. Testing Directives
+
+### This chapter covers:
+- Using the types of directives available in Angular
+- Testing attribute and structural directives
+- Using TestMetaData to configure TestBed
