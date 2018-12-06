@@ -320,3 +320,20 @@ it('should display a solid gold star if the user rolls over the star', () => {
 });
 
 ```
+
+### 4.3.4 Creating the ShowContactsDirective test
+
+Testing the text of an element
+```
+export function getElement(fixture: ComponentFixture<ComponentRef<any>>): HTMLElement {
+  const el: HTMLElement = fixture.nativeElement as HTMLElement;
+  return el;
+}
+
+it('should be displayed when the input evaluates to true.', () => {
+  const element = getElement(fixture);
+  expect(element.innerText).toContain('This is shown');
+});
+```
+
+## Chapter 5 Testing Pipes
