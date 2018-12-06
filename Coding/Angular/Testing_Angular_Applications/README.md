@@ -269,3 +269,54 @@ it('should contain contacts if there is data', () => {
 - Using the types of directives available in Angular
 - Testing attribute and structural directives
 - Using TestMetaData to configure TestBed
+
+Directives, like components, are a way to encapsulate parts of your application into reusable chuncks of code.
+
+> The only difference between directives and components is that components contain a view.
+
+There are three types of directives:
+- Components
+- Structural directives
+- Attribute directives
+
+### 4.1.1 Componets vs directives
+
+Decorators are a way to add behavior to a class or method.
+
+### 4.1.2 Attribute directives
+
+Attribute directives are used when you are trying to change the apperance of a DOM element.
+
+### 4.1.3 Strucural directives
+
+Structure directives are used to add or remove elements from the DOM.
+
+```
+// Creating your own directive looks something like this...
+@Directive({
+  selector: '[appFavoriteIcon]'
+})
+export class FavoriteIconDirective implements OnInit {
+  ...
+}
+```
+
+`fixture.detectChanges()` is used to invoke change detection and render updated data whenever an event occurs, such as a click or a mouseenter.
+
+### 4.2.4 Creating the Favorite Icon directive tests
+
+Getting the color of a debug element.
+```
+expect(starElement.style.color).toBe('gold');
+```
+
+Testing a mouseenter event:
+```
+it('should display a solid gold star if the user rolls over the star', () => {
+      const event = new Event('mouseenter');
+      starElement.dispatchEvent(event);
+      expect(starElement.style.color).toBe('gold');
+      expect(doClassesMatch(starElement.classList, expectedSolidStarList)).toBeTruthy();
+});
+
+```
