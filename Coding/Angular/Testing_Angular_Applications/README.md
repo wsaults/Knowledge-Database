@@ -379,3 +379,50 @@ describe('phone number format tests', () => {
 
 ## Chapter 6 Testing Services
 
+Create BrowserStorageMock
+```
+class BrowserStorageMock {
+    getItem = (property: string) => ({ key: 'testProp', value: 'testValue '});
+    setItem = ({ key: key, value: value }) => {};
+}
+```
+
+Configure the TestBed dependency injection to use BrowserStorageMock instead of the real service
+```
+beforeEach(() => {
+    TestBed.configureTestingModule({
+        providers: [PreferencesService, {
+            provide: BrowserStorage, useClass: BrowserStorageMock
+        }]
+    });
+});
+```
+
+Use inject to get the BrowserStorageMock
+Add a spy to browserStorage.setItem
+Check the spy to make sure it was called from saveProperty()
+[Testing dependency injection](https://youtu.be/iy35OhhtYgc?t=105)
+```
+describe('save preferences', () => {
+    it('should save a preference', inject([PreferencesService, BrowserStorage],
+        (service: PreferencesService, browserStorage: BrowserStorageMock) => {
+
+            spyOn(browserStorage, 'setItem').and.callThrough();
+            service.saveProperty({ key: 'myProperty', value: 'myValue' });
+            expect(browserStorage.setItem).toHaveBeenCalledWith('myProperty', 'myValue');
+        })
+    );       
+});
+```
+
+Listing 6.8 Unit test for checking that a bad input throws an error.
+```
+it('saveProperty should require a non-zero length key',
+    inject([PreferencesService],  (service: PreferencesService) => {
+ 
+    const fn = () => service.saveProperty({ key: ‘’, value: ‘foo’ });
+ 
+    expect(fn).toThrowError();
+  })
+);
+```
