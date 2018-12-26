@@ -426,3 +426,19 @@ it('saveProperty should require a non-zero length key',
   })
 );
 ```
+
+Listing 6.9 Incorrect and correct way to write asynchronous Jasmine tests
+```
+it('is an asynchronous test', () => {
+    setTimeout(() => {
+        expect(true).toBe(false);
+ });
+});
+
+it('is an asynchronous test', (done) => {
+    setTimeout(() => {
+        expect(true).toBe(false);
+     done();
+ });
+});
+```
