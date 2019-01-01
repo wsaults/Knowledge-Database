@@ -1,4 +1,5 @@
 # Testing Angular Applications
+
 > Copyright 2018 Manning Publications
 
 ## Chapter 1. Introduction to testing Angular applications
@@ -10,6 +11,7 @@
 - The two primary types of tests are unit and End-to-End (E2E).
 
 The first half of this book covers testing:
+
 - Components, Directives, Pipes, Services, and Routing.
 - We will explore tools like Jasmine, Karma, and the Angular CLI.
 
@@ -32,12 +34,14 @@ TypeScript is a Microsoft product created in 2012 by Ander Hejlsberg who is also
 > !: JavaScript was created in 1995 in 10 days by Brenden Eich.
 
 TypeScript adds:
+
 - Annotations
 - Static typing
 - OO features (like interfaces and encapsulation)
 
 #### TypeScript Class Example
-```
+
+```typescript
 export class Cat {
   private _name: string = '';
 
@@ -58,18 +62,21 @@ export class Cat {
   }
 }
 ```
+
 > Note: The '?' makes parameters optional.
 
 ### Types of tests
 #### 1.3.3 Unit Tests
 
 Unit tests should be:
+
 - Fast
 - Reliable
 - Repeatable
 
 #### Example of Simple Unit Test using Jasmine
-```
+
+```typescript
 describe('super basic test', () => {
   it('true is true', () => {
     expect(true).toEqual(true); // a simple smoke test.
@@ -80,7 +87,8 @@ describe('super basic test', () => {
 > Note: A smoke test is used to see if all the parts of your testing environment are set up correctly and you are just attempting to get a test to pass. A test this simple should not be in production.
 
 #### Better example of a Unit Test
-```
+
+```typescript
 import { Cat } from './cat';
 
 describe('Test Cat getters and setters.', () => {
@@ -102,7 +110,8 @@ describe('Test Cat getters and setters.', () => {
 > Note: E2Es can be the source of false positive failing tests due to timing out issues.
 
 #### Example of Simple End-to-End
-```
+
+```typescript
 import { browser } from 'protractor';
 
 describe('Contacts App title test', () => {
@@ -128,56 +137,64 @@ describe('Contacts App title test', () => {
 > Note: Jasmine is a behavior-driven development framework (BDD).
 
 - describe: used to group together a series of tests.
-```
+
+```typescript
 describe('message describing the test suite', callback);
 ```
+
 - it: used when we want to create a specific test.
-```
+
+```typescript
 it('message describing the test', callback);
 ```
+
 - expect: where you want to write the code for the test to work.
-```
+
+```typescript
 Matcher function examples:
 toBe(), toContain(), toThrow, toEqual(), toBeTruthy(), toBeNull()...
 ```
+
 > Documentation: [jasmine](https://jasmine.github.io/)
 
 
 ### 2.2 Testing classes
 
-```
+```typescript
 import SomeClass from './someClass';
 ```
 > It's not necessary to include the .ts when importing a class.
 
-```
+```typescript
 let something: SomeClass = null;
 ```
+
 > It is preferable to use let instead of var to solve various scoping issues. Let was introduced in ES6.
 
-```
+```typescript
 // This is known as the Setup part of the test.
 beforeEach(() => {
   something = new SomeClass();
 });
 ```
+
 > It is common to reset a variable before every test to ensure that each is run independantly and that previous manipulated variables do not interfere with any other tests.
 
-```
+```typescript
 it('should have a valid constructor', () => {
   expect(something).not.toBeNull(); // '.toBeTruthy();' would be the same as '.not.toBeNull();'
 });
 ```
 > Note: using 'should' in your tests are optional.
 
-```
+```typescript
 afterEach(() => {
   something = null;
 });
 ```
 > Make sure to destroy instance varaibles to avoid memory leaks.
 
-```
+```typescript
 // Testing a constructor
 it('should set name properly though constructor', () => {
   contact = new ContactClass('Liz');
@@ -187,7 +204,8 @@ it('should set name properly though constructor', () => {
 
 ## Chapter 3. Testing Components
 
-#### This chapter covers:
+#### This chapter covers
+
 - Testing components
 - Knowing the differences between isolated and shallow tests
 - Testing classes and functions
@@ -196,7 +214,7 @@ it('should set name properly though constructor', () => {
 
 ### 3.1 Basic component tests
 
-```
+```typescript
 it('should not contain contacts if there is no data', () => {
   expect(contactsComponent.contact.length).toBe(0);
 });
@@ -212,6 +230,7 @@ it('should contain contacts if there is data', () => {
   expect(contactsComponent.contacts.length).toBe(1);
 });
 ```
+
 > The tests above are known as *Isolated Tests* because they do not rely on any Angular dependencies.
 
 ### 3.2 Real-world component testing
@@ -236,12 +255,13 @@ it('should contain contacts if there is data', () => {
 
 ### 3.2.2 Setting up the tests
 
-> Note: 
-  - *test fake:* an object used in a test that substitutes for the real thing.
-  - *mock:* a fake that simulates the real object and keeps track of when it's called and what arguments it receives.
-  - *stub:* a simple fake with no logic that always returns the same value.
+> Note:
+- *test fake:* an object used in a test that substitutes for the real thing.
+- *mock:* a fake that simulates the real object and keeps track of when it's called and what arguments it receives.
+- *stub:* a simple fake with no logic that always returns the same value.
 
 #### Table 3.3: TestingModuleMetadata optional fields
+
 *declarations*: This is where you list any components that the component you are testing may need.
 
 *imports*: Should be set to an array of moduels that the component you are testing requires.
@@ -265,7 +285,8 @@ it('should contain contacts if there is data', () => {
 
 ## Chapter 4. Testing Directives
 
-### This chapter covers:
+### This chapter covers
+
 - Using the types of directives available in Angular
 - Testing attribute and structural directives
 - Using TestMetaData to configure TestBed
@@ -275,6 +296,7 @@ Directives, like components, are a way to encapsulate parts of your application 
 > The only difference between directives and components is that components contain a view.
 
 There are three types of directives:
+
 - Components
 - Structural directives
 - Attribute directives
@@ -291,7 +313,7 @@ Attribute directives are used when you are trying to change the apperance of a D
 
 Structure directives are used to add or remove elements from the DOM.
 
-```
+```typescript
 // Creating your own directive looks something like this...
 @Directive({
   selector: '[appFavoriteIcon]'
@@ -306,12 +328,14 @@ export class FavoriteIconDirective implements OnInit {
 ### 4.2.4 Creating the Favorite Icon directive tests
 
 Getting the color of a debug element.
-```
+
+```typescript
 expect(starElement.style.color).toBe('gold');
 ```
 
 Testing a mouseenter event:
-```
+
+```typescript
 it('should display a solid gold star if the user rolls over the star', () => {
       const event = new Event('mouseenter');
       starElement.dispatchEvent(event);
@@ -324,7 +348,8 @@ it('should display a solid gold star if the user rolls over the star', () => {
 ### 4.3.4 Creating the ShowContactsDirective test
 
 Testing the text of an element
-```
+
+```typescript
 export function getElement(fixture: ComponentFixture<ComponentRef<any>>): HTMLElement {
   const el: HTMLElement = fixture.nativeElement as HTMLElement;
   return el;
@@ -339,7 +364,8 @@ it('should be displayed when the input evaluates to true.', () => {
 ## Chapter 5 Testing Pipes
 
 Example pipe test
-```
+
+```typescript
 describe('PhoneNumberPipe Tests', () => {
     let phoneNumber: PhoneNumberPipe = null;
 
@@ -364,7 +390,8 @@ describe('PhoneNumberPipe Tests', () => {
 ```
 
 Example pipe test using an argument
-```
+
+```typescript
 describe('phone number format tests', () => {
     it('should format the phone number using the dots format', () => {
       const testInputPhoneNumber = '7035550123';
@@ -380,7 +407,8 @@ describe('phone number format tests', () => {
 ## Chapter 6 Testing Services
 
 Create BrowserStorageMock
-```
+
+```typescript
 class BrowserStorageMock {
     getItem = (property: string) => ({ key: 'testProp', value: 'testValue '});
     setItem = ({ key: key, value: value }) => {};
@@ -388,7 +416,8 @@ class BrowserStorageMock {
 ```
 
 Configure the TestBed dependency injection to use BrowserStorageMock instead of the real service
-```
+
+```typescript
 beforeEach(() => {
     TestBed.configureTestingModule({
         providers: [PreferencesService, {
@@ -402,7 +431,8 @@ Use inject to get the BrowserStorageMock
 Add a spy to browserStorage.setItem
 Check the spy to make sure it was called from saveProperty()
 [Testing dependency injection](https://youtu.be/iy35OhhtYgc?t=105)
-```
+
+```typescript
 describe('save preferences', () => {
     it('should save a preference', inject([PreferencesService, BrowserStorage],
         (service: PreferencesService, browserStorage: BrowserStorageMock) => {
@@ -416,7 +446,8 @@ describe('save preferences', () => {
 ```
 
 Listing 6.8 Unit test for checking that a bad input throws an error.
-```
+
+```typescript
 it('saveProperty should require a non-zero length key',
     inject([PreferencesService],  (service: PreferencesService) => {
  
@@ -428,7 +459,8 @@ it('saveProperty should require a non-zero length key',
 ```
 
 Listing 6.9 Incorrect and correct way to write asynchronous Jasmine tests
-```
+
+```typescript
 it('is an asynchronous test', () => {
     setTimeout(() => {
         expect(true).toBe(false);
@@ -442,3 +474,74 @@ it('is an asynchronous test', (done) => {
  });
 });
 ```
+
+Listing 6.13 Setting up TestBed before each test
+
+```typescript
+import { TestBed, fakeAsync, inject } from '@angular/core/testing';
+import { Http, BaseRequestOptions, Response, ResponseOptions, RequestMethod } from '@angular/http';
+import { MockBackend, MockConnection } from '@angular/http/testing';
+ 
+import { ContactService } from './contact.service';
+ 
+describe('ContactsService', () => {
+    beforeEach(() => {
+        TestBed.configureTestingModule({
+            providers: [
+                ContactService,
+                MockBackend,
+                BaseRequestOptions,
+                {
+                    provide: Http,
+                    useFactory: (backend, options) => new Http(backend, options),
+                    deps: [MockBackend, BaseRequestOptions]
+                }
+            ]
+        });
+    });
+ 
+});
+```
+
+Listing 6.14 Unit testing ContactsService.getContacts()
+
+```typescript
+describe('getContacts', () => {
+  let mockBackend;
+  let mockContact;
+  let mockGetContactsResponse;
+ 
+  beforeEach(inject([MockBackend], (_MockBackend_) => {
+    mockBackend = _MockBackend_;
+    mockContact = { id: 100, name: 'Erin Dee', email: 'edee@example.com' };
+    mockGetContactsResponse = new Response(new ResponseOptions({ body: { data: [ mockContact ] }}));
+  }));
+ 
+  afterEach(() => {
+    mockBackend.verifyNoPendingRequests();
+    mockBackend.resolveAllConnections();
+  });
+ 
+  it('should GET a list of contacts',
+    fakeAsync(inject([ContactService], (service) => {
+ 
+      mockBackend.connections //
+        .subscribe((connection: MockConnection) => {        
+          expect(connection.request.method).toEqual(RequestMethod.Get);
+          connection.mockRespond(mockGetContactsResponse);
+        });
+ 
+      service.getContacts() //
+        .subscribe((contacts) => {
+          expect(contacts[0]).toEqual(mockContact);
+        });
+    }))
+  );
+});
+```
+
+## Chapter 7 Testing Router
+
+> The Angular router is part of the Angular framework that converts the web address to a specific view of the Angular application.
+
+### 7.1.1 Configuring the router
