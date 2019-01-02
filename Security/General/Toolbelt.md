@@ -1,6 +1,44 @@
 # Toolbelt
 
-## Analize network traffic
+## Recon
+
+- [anywho.com](https://www.anywho.com)
+- [spokeo.com](https://www.spokeo.com)
+- [yasni.com](https://www.yasni.com)
+- nslookup
+
+```cmd
+nslookup www.google.com
+set type=MX (mail exchange?)
+set type=SOA (start of authority)
+set type=NS (name server)
+set type=a
+```
+
+> Note: You can just type nslookup and hit enter to start interactive mode
+
+- Path Analyzer Pro
+- ping
+- dnsenum (kali)
+
+```cmd
+dnsenum virnet.com
+```
+
+-hping3
+
+```cmd
+hping3 -SU 75.98.175.71
+```
+
+-etherape
+-nikto
+
+```
+nikto -h http://
+```
+
+### Analyze network traffic
 
 - Snort
 - Wireshark
@@ -13,7 +51,7 @@ smb and tcp and ip.addr == 198.51.100.50
 
 - hexdump
 
-## Network mapping
+### Network mapping
 
 - nmap
 
@@ -31,15 +69,59 @@ nmap -sT -sV 192.168.0.0/24
 
 > You can also use -A to determine each host's Operating System.
 
-## DOS (Denial of service)
+## Enumeration
+
+- GetAcct / enum4linux
+- nbtstat / enum4linux
+- netuse
+- netdiscover
+
+```cmd
+netdiscover -i eth0
+```
+
+- macof (packet flooding)
+
+```cmd
+macof -i eth0 -n 10
+```
+
+- smdclient
+- SuperScan (Windows)
+- PsTools (Windows)
+
+### Null Session
+
+#### Linux
+
+```cmd
+smbclient -I IPADDRESS -L DOMAIN -N -U
+```
+
+#### Windows
+
+```cmd
+net use \\192.168.92.131\IPC$ /u:"" ""
+```
+
+### DOS (Denial of service)
 
 - hping3
 
-## Password cracking
+### Password cracking
 
 - Cain & Able
 - pwdump7
 - [LMHash](http://www.tobtu.com/lmntlm.php)
+- default passwords lists [phenoelit.org](http://www.phenoelit.org/dpl/dpl.html)
+- Link Control Protocol (LCP - Windows)
+
+## Hacking
+
+> Note: sing "Alternative data streams" to hide files
+
+- ADS Spy (detects Alternative Data Streams)
+- x.exe (Windows - Adds an X user to the admin users)
 
 ## Incident response (Windows)
 
