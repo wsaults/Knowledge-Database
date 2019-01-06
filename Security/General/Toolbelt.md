@@ -50,6 +50,7 @@ smb and tcp and ip.addr == 198.51.100.50
 ```
 
 - hexdump
+- ICMPsrv (tunnel command line application)
 
 ### Network mapping
 
@@ -74,6 +75,7 @@ nmap -sT -sV 192.168.0.0/24
 - GetAcct / enum4linux
 - nbtstat / enum4linux
 - netuse
+- netstat (TCP / UDP info)
 - netdiscover
 
 ```cmd
@@ -122,6 +124,14 @@ net use \\192.168.92.131\IPC$ /u:"" ""
 
 - ADS Spy (detects Alternative Data Streams)
 - x.exe (Windows - Adds an X user to the admin users)
+
+- BinText Windows program (view strings at memory locations in a file)
+
+- Internet worm maker thing (script kiddie)
+- DELmE's Batch Virus Maker (script kiddie) [cybrary lab](https://www.cybrary.it/video/viruses-worms-delme-lab/)
+- JPS Virus maker (script kiddie)
+- DriftNet (Kali: capture network traffic including audio)
+- macof (Kali: buffer overflow)
 
 ## Incident response (Windows)
 
