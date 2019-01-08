@@ -51,6 +51,8 @@ smb and tcp and ip.addr == 198.51.100.50
 
 - hexdump
 - ICMPsrv (tunnel command line application)
+- urlSnarf (Kali: sniff HTTP requests) (use wwwstat to analyze pcap output from urlsnarf)
+- WebSpy (Kali: displays sniffed urls in the browser in real time)
 
 ### Network mapping
 
@@ -110,6 +112,14 @@ net use \\192.168.92.131\IPC$ /u:"" ""
 
 - hping3
 
+```cmd
+hping3 -S IP -a IP -p 21 --flood
+hping3 -S IP -a IP -p 22 --flood
+hping3 -S IP -a IP -p 80 --flood
+```
+
+LOIC (Low orbing ion cannon)
+
 ### Password cracking
 
 - Cain & Able
@@ -131,7 +141,19 @@ net use \\192.168.92.131\IPC$ /u:"" ""
 - DELmE's Batch Virus Maker (script kiddie) [cybrary lab](https://www.cybrary.it/video/viruses-worms-delme-lab/)
 - JPS Virus maker (script kiddie)
 - DriftNet (Kali: capture network traffic including audio)
-- macof (Kali: buffer overflow)
+- macof (Kali: packet flooding)
+- SMAC (Windows: change mac address)
+
+### Session Hijacking
+
+- Ferret (Windows)
+- Hamster (Windows: Browser tool)
+- Burpsuite (Kali: web app hacking, MiTM, session hijacking)
+
+### Web Application Hacking
+
+- Httprecon (Windows)
+- ID Serve (Windows)
 
 ## Incident response (Windows)
 
