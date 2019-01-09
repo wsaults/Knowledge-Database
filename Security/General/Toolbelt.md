@@ -72,6 +72,12 @@ nmap -sT -sV 192.168.0.0/24
 
 > You can also use -A to determine each host's Operating System.
 
+### Wireless
+
+- airmon-ng
+- airodump
+- kismet (packet sniffer)
+
 ## Enumeration
 
 - GetAcct / enum4linux
@@ -154,6 +160,24 @@ LOIC (Low orbing ion cannon)
 
 - Httprecon (Windows)
 - ID Serve (Windows)
+- wget (Kali)
+- DirBuster (Kali)
+- wpscan (Kali: Scan WordPress sites)
+- BlindElephant.py (Kali: Web app scanner)
+
+```cmd
+wpscan --url www.example.com
+```
+
+### SQL Injection
+
+> Note: Google search for SQL injection vulnerable sites
+
+```cmd
+php?id=
+```
+
+- sqlmap (Kali)
 
 ## Incident response (Windows)
 
