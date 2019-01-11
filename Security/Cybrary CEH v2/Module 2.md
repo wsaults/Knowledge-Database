@@ -32,3 +32,17 @@ nikto -e 1 -h webscantest.com
 ```
 
 ## 2.4 TheHarvester lab
+
+> Domain reserach
+
+```cmd
+# d: domain
+# l: limit results
+# b: data source
+# h: shodan
+theharvester -d microsoft.com -l 50 -b google -h myresults.html
+```
+
+## 2.5 Google hacking
+
+[google hacking db](https://www.exploit-db.com/google-hacking-database)
