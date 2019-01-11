@@ -179,6 +179,35 @@ php?id=
 
 - sqlmap (Kali)
 
+### Buffer Overflow
+
+- make, compile, run (In C)
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main (int argc, char *argv[])
+{
+  if(argc < 2) {
+    printf("You need a value\n");
+    exit(0);
+  }
+
+  char buffer[10];
+  strcpy(buffer, argv[1]);
+  printf("The value is: ");
+  printf(buffer);
+  printf("\n")
+  return (0);
+}
+```
+
+> Note: Compile this in Kali using: `gcc something.c -o something`
+> Note: Run this in Kali using: `./something`
+> Note: use `gcc stack.c -ggdb -o stack1.c` for buffer overflow example
+[example video](https://www.cybrary.it/video/buffer-overflows-stack-lab/)
+
 ## Incident response (Windows)
 
 - Event viewer (Run: `eventvwr`)
