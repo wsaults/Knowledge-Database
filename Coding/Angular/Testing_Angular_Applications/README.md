@@ -545,3 +545,18 @@ describe('getContacts', () => {
 > The Angular router is part of the Angular framework that converts the web address to a specific view of the Angular application.
 
 ### 7.1.1 Configuring the router
+
+```typescript
+// Example router configuration
+export const routes: Routes = [
+ { path: '', component: ContactsComponent },    
+ { path: 'add', component: NewContactComponent },
+ { path: 'contacts', component: ContactsComponent },
+ { path: 'contact/:id', component: ContactDetailComponent },    
+ { path: 'edit/:id', component: ContactEditComponent },    
+ { path: '**', component: PageNotFoundComponent }    
+];
+```
+
+### 7.1.2 Route guards: the router's lifecycle hooks
+
