@@ -549,14 +549,117 @@ describe('getContacts', () => {
 ```typescript
 // Example router configuration
 export const routes: Routes = [
- { path: '', component: ContactsComponent },    
+ { path: '', component: ContactsComponent },
  { path: 'add', component: NewContactComponent },
  { path: 'contacts', component: ContactsComponent },
- { path: 'contact/:id', component: ContactDetailComponent },    
- { path: 'edit/:id', component: ContactEditComponent },    
- { path: '**', component: PageNotFoundComponent }    
+ { path: 'contact/:id', component: ContactDetailComponent },
+ { path: 'edit/:id', component: ContactEditComponent },
+ { path: '**', component: PageNotFoundComponent }
 ];
 ```
 
-### 7.1.2 Route guards: the router's lifecycle hooks
+### 7.2.1 Testing router navigation with RouterTestingModule
 
+When using `fakeAsync`, you have to resolve outstanding asynchronous calls manually with the flush method, and then update the fixture with `detectChanges`.
+
+```typescript
+beforeEach(fakeAsync(() => {
+  router = TestBed.get(Router);
+  location = TestBed.get(Location);
+  fixture = TestBed.createComponent(AppComponent);
+router.navigateByUrl('/');
+advance();
+}));
+
+function advance(): void {
+flush();
+fixture.detectChanges();
+}
+```
+
+### 7.3.1 Route guards
+
+```typescript
+// Listing 7.10 AuthenticationGuard service
+@Injectable()
+class AuthenticationGuard implements CanActivate {
+ constructor(private userAuth: UserAuthentication) {}
+ canActivate(): Promise<boolean> {
+ return new Promise((resolve) =>
+ resolve(this.userAuth.getAuthenticated());
+ );
+ }
+}
+
+@Injectable()
+class UserAuthentication {
+ private isUserAuthenticated: boolean = false;
+ authenticateUser() {
+ this.isUserAuthenticated = true;
+ }
+ getAuthenticated() {
+ return this.isUserAuthenticated;
+ }
+}
+```
+
+```typescript
+// Listing 7.11 Setting up the AuthenticationGuard test
+beforeEach(() => {
+  TestBed.configureTestingModule({
+ imports: [RouterTestingModule.withRoutes([
+      { path: '', component: AppComponent },
+      {
+        path: 'protected',
+        component: TargetComponent,
+ canActivate: [AuthenticationGuard],
+      }
+      ])],
+    providers: [AuthenticationGuard, UserAuthentication],
+    declarations: [TargetComponent, AppComponent],
+  });
+
+  router = TestBed.get(Router);
+  location = TestBed.get(Location);
+ userAuthService = TestBed.get(UserAuthentication);
+});
+
+beforeEach(fakeAsync(() => {
+  fixture = TestBed.createComponent(AppComponent);
+  router.initialNavigation();
+}));
+```
+
+```typescript
+// Listing 7.12 AuthenticationGuard tests
+it('tries to route to a page without authentication', fakeAsync(() => {
+ router.navigate(['protected']);
+  flush();
+  expect(location.path()).toEqual('/');
+}));
+
+it('tries to route to a page after authentication', fakeAsync(() => {
+ userAuthService.authenticateUser();
+  router.navigate(['protected']);
+  flush();
+  expect(location.path()).toEqual('/protected');
+}));
+```
+
+> Note: These tests make sure the route guards behave correctly under different application scenarios.
+
+### 7.3.2 Resolving data before loading a route
+
+```typescript
+// Listing 7.13 Configured resolver route guard
+{
+  path: 'contacts',
+  component: TargetComponent,
+  resolve: {
+    userPreferences: UserPreferencesResolver,
+    contacts: ContactsResolver
+  }
+}
+```
+
+## Part 2 End-to-end testing
