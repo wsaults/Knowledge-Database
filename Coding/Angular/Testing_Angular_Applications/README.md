@@ -924,3 +924,337 @@ expect(contactName.isDisplayed()).toBe(false);
 ```
 
 ### 8.6 Interacting with a list of elements
+
+> **Note:** A common gotcha is to try to iterate over the collection of web elements with a for loop. You can’t loop through a promise, so instead you’ll use the Protractor API methods for `element.all`.
+
+```typescript
+element(by.tagName('tbody')).all(by.tagName('tr'))
+```
+
+```typescript
+// Listing 8.11 Filter for a contact—e2e/contact-list.e2e-spec.ts
+import { browser, by, element } from 'protractor';
+
+describe('the contact list', () => {
+  it('with filter: should find existing ' +
+     'contact "Craig Service"', () => {
+    let tbody = element(by.tagName('tbody'));
+ let trs = tbody.all(by.tagName('tr'));
+    let craigService = trs.filter(elem => {
+ return elem.all(by.tagName('td')).get(1).getText()
+          .then(text => {
+ return text === 'Craig Service';
+      });
+    });
+ expect(craigService.count()).toBeGreaterThan(0);
+    expect(craigService.all(by.tagName('td'))
+ .get(2).getText())
+        .toBe('craig.services@example.com');
+  });
+});
+```
+
+### 8.6.2 Mapping the contact list to an array
+
+```typescript
+// Listing 8.12 Checking that all the contacts appear as expected with map
+import { browser, by, element } from 'protractor';
+import { promise as wdpromise } from 'selenium-webdriver';
+
+export interface Contact {
+  name?: string;
+  email?: string;
+  tel?: string;
+}
+
+describe('the contact list', () => {
+  let expectedContactList: Contact[] = [{
+      name: 'Adrian Directive',
+      email: 'adrian.directive@example.com',
+      tel: '+1 (703) 555-0123'
+    }, {
+      name: 'Rusty Component',
+      email: 'rusty.component@example.com',
+      tel: '+1 (441) 555-0122'
+    }, {
+      name: 'Jeff Pipe',
+      email: 'jeff.pipe@example.com',
+      tel: '+1 (714) 555-0111'
+    }, {
+      name: 'Craig Service',
+      email: 'craig.services@example.com',
+      tel: '+1 (514) 555-0132'
+  }];
+
+  beforeAll(() => {
+    browser.get('/#/');
+  });
+
+  it('with map: should create a map object', () => {
+    let tbody = element(by.tagName('tbody'));
+    let trs = tbody.all(by.tagName('tr'));
+ let contactList = trs.map(elem => {
+      let contact: Contact = {};
+      let promises: any[] = [];
+ let tds = element.all(by.tagName('td'));
+ promises.push(tds.get(0).getText().then(text => {
+        contact.name = text;
+      }));
+ promises.push(tds.get(1).getText().then(text => {
+        contact.email = text;
+      }));
+ promises.push(tds.get(2).getText().then(text => {
+        contact.tel = text;
+      }));
+
+ return Promise.all(promises).then(() => {
+        return contact;
+      });
+    });
+ expect(contactList).toBeDefined();
+ contactList.then((contacts: Contact[]) => {
+      expect(contacts.length).toEqual(4);
+ expect(contacts).toEqual(expectedContactList);
+    });
+  });
+});
+```
+
+### 8.6.3 Reduce
+
+```typescript
+// Listing 8.13 Reduce the list of elements to a single string
+describe('the contact list', () => {
+  beforeAll(() => {
+    browser.get('/#/');
+  });
+
+  it('with reduce: get a list of contact names', () => {
+    let tbody = element(by.tagName('tbody'));
+ let trs = tbody.all(by.tagName('tr'));
+ let contacts = trs.reduce((acc, curr) => {
+ let name = curr.all(by.tagName('td')).get(0);
+      return name.getText().then(text => {
+ return acc + ', ' + text;
+      });
+    });
+    expect(contactList).toEqual(
+        'Adrian Directive, Rusty Component, Jeff Pipe, ' +
+        'Craig Service');
+  });
+});
+```
+
+### 8.7 Page objects
+
+```typescript
+// Listing 8.14 Contact list page object—e2e/po/contact-list.po.ts
+import { browser, by, element, ElementFinder } from 'protractor';
+
+export class ContactListPageObject {
+  plusButton: ElementFinder;
+
+  constructor() {
+ this.plusButton = element(by.id('add-contact'));
+  }
+
+  clickPlusButton() {
+    this.plusButton.click();
+ return new NewContactPageObject();
+  }
+
+  navigateTo() {
+    browser.get('/#/');
+  }
+}
+```
+
+```typescript
+// Listing 8.15 New contact page object—e2e/po/new-contact.po.ts
+import { browser, by, element, ElementFinder } from 'protractor';
+
+export class NewContactPageObject {
+  inputName: ElementFinder;
+  inputEmail: ElementFinder;
+  inputPhone: ElementFinder;
+
+  constructor() {
+    this.inputName = element(by.id('contact-name')); 
+    this.inputEmail = element(by.id('contact-email'));
+    this.inputPhone = element(by.css('input[type="tel"]'));
+  }
+
+  setContactInfo(name: string, email: string,
+      phoneNumber: string) {
+ this.inputName.sendKeys(name);
+ if (email) {
+      this.inputEmail.sendKeys(email);
+    }
+ if (phoneNumber) {
+      this.inputPhone.sendKeys(phoneNumber);
+    }
+  }
+
+  clickCreateButton() {
+    this.element(by.buttonText('Create')).click();
+    return new ContactListPageObject();
+  }
+
+ getName() {
+    return this.inputName.getAttribute('value');
+  }
+}
+  getPhone() {
+    return this.inputPhone.getAttribute('value');
+}
+  getEmail() {
+    return this.inputEmail.getAttribute('value');
+}
+```
+
+## Chapter 9 Understanding timeouts
+
+### 9.3 Waiting with expected conditions
+
+```typescript
+let EC = browser.ExpectedConditions;
+browser.wait(EC.visibilityOf($('.popup-title')), 2000,
+  'Wait for popup title to be visible.');
+```
+
+```typescript
+// Chained expected conditions
+let EC = browser.ExpectedConditions;
+let titleCondition = EC.and(EC.titleContains('foo'),
+    EC.not(EC.titleContains('bar'));
+browser.wait(titleCondition, 5000, 'Waiting for title to contain foo and not bar');
+```
+
+### 9.5 Using browser.wait
+
+```typescript
+// Listing 9.5 Using browser.wait with a custom condition
+describe('feed dialog', () => {
+  beforeEach(() => {
+    browser.get('/contact/4');
+  });
+
+  it('should enable the follow button with more than two posts', () => {
+    let feedButton = element(by.css('button.feed-button'));
+    feedButton.click();
+
+    let followButton = element(by.css('button.follow'))
+ expect(followButton.isEnabled()).toBeFalsy();
+    let moreThanOnePost = () => {
+      return element.all(by.css('app-contact-feed mat-list-item')).count()
+        .then((count) => {
+ return count >= 2;
+        })
+    };
+ browser.wait(moreThanOnePost, 20000, 'Waiting for two posts');
+
+ expect(followButton.isEnabled()).toBeTruthy();
+  });
+});
+```
+
+## Chapter 10
+
+### 10.2.1 Taking Screenshots
+
+```typescript
+browser.takeScreenshot()
+```
+
+```typescript
+// Listing 10.9 test_screenshot/e2e/screenshot.e2e-spec.ts
+describe('the contact list', () => {
+  beforeAll(() => {
+    browser.get('/');
+ browser.driver.manage().window().setSize(1024,900);
+  });
+
+  it('should be able to login', (done) => {  
+    const list = element(by.css('app-contact-list'));
+ browser.waitForAngular();
+
+    browser.takeScreenshot().then((data) => {
+      fs.writeFileSync('screenshot.png', data, 'base64');
+ done();
+    })
+  });
+});
+```
+
+### 10.2.2 Taking screenshots on test failure
+
+```config
+plugins: [{
+  path: './screenshot_on_failure_plugin.ts'
+}],
+```
+
+```typescript
+// Listing 10.10 test_screenshot/screenshot_on_failure_plugin.ts
+import {browser} from 'protractor';
+import * as fs from 'fs';
+
+export function postTest(passed: boolean, testInfo: any) {
+  if(!passed) {
+ const fileName = `${testInfo.name.replace(/ /g, '_')}_failure.png`
+    return browser.takeScreenshot().then((data) => {
+ fs.writeFileSync(fileName, data, 'base64')
+    });
+  }
+}
+```
+
+### 10.3.2 Highlight delay
+
+Use `-highlightDelay` to tell Protractor to first highlight the text field with a blue rectangle and then wait the specified delay time.
+
+### 10.4.2 The WebDriver control flow
+
+```typescript
+// Listing 10.16 Test using control flow
+it('should open the dialog with waitForAngular', () => {
+    let feedButton = element(by.css('button.feed-button'));
+    let closeButton = element(by.css('button[mat-dialog-close]'));
+    let dialogTitle = element(by.css('app-contact-feed h2.mat-dialog-title'));
+
+ feedButton.click();
+    expect(dialogTitle.getText())
+        .toContain('Latest posts from Craig Service');
+ debugger;
+
+    closeButton.click();  
+    browser.wait(EC.stalenessOf(dialogTitle), 3000, 
+        'Waiting for dialog to close');
+    expect(dialogTitle.isPresent()).toBeFalsy();
+ });
+```
+
+> **Note:** These two tests do the same thing.
+
+```typescript
+// Listing 10.17 Explicitly using WebDriver promises
+it('should open the dialog with waitForAngular', (done) => {
+    let feedButton = element(by.css('button.feed-button'));
+    let closeButton = element(by.css('button[mat-dialog-close]'));
+    let dialogTitle = element(by.css('app-contact-feed h2.mat-dialog-title'));
+    return feedButton.click().then(() => {  
+      return dialogTitle.getText();  
+    }).then((dialogText) => {
+      expect(dialogText).toContain('Latest posts from Craig Service');
+ debugger;
+      return closeButton.click();
+    }).then(() => {
+      return browser.wait(EC.stalenessOf(dialogTitle), 3000,
+          'Waiting for dialog to close');
+    }).then(() => {
+      return dialogTitle.isPresent();
+    }).then((dialogTitleIsPresent) => {
+      expect(dialogTitleIsPresent).toBeFalsy();
+      done();
+    });
+```
