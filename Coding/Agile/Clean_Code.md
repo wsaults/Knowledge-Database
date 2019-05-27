@@ -162,3 +162,4 @@ Shorter names are better as long as they are clear.
 ---
 
 ## Chapter 3 - Functions
+
